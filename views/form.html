@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <form action="http://localhost:8080/insert" method="get">
+        <label for="">Name : </label>
+        <input type="text" name="name" id="name" required>
+        <label for="">Age : </label>
+        <input type="number" name="age" id="age" required>
+        <label for="">Experience : </label>
+        <input type="text" name="experience" id="experience" required>
+        <label for="">Skills : </label>
+        <input type="text" name="skills" id="skills" required>
+        <label for="">Salary : </label>
+        <input type="text" name="salary" id="salary" required>
+        <label for="">Bal : </label>
+        <input type="text" name="bal" id="bal" required>
+        <input type="submit" value="submit">
+    </form>
+    
+</body>
+</html>

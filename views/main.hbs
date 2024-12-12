@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Document</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+            box-sizing: border-box;
+        }
+        .h1{
+           background-color: red;
+           color:whitesmoke;
+           text-align: center;
+           padding:20px;
+        }
+        .main_table{
+            width:90%;
+            margin:auto;
+        }
+    </style>
+</head>
+<body>
+    <h1 class ="h1">Express.js {{text}}</h1>
+    {{#if edit_Id}}
+        <form action="/update/?edit_id={{data._id}}" method="post">
+        <label for="">Name : </label>
+        <input type="text" name="name" id="name" value = {{data.Name}} ><br>
+        <label for="">Age : </label>
+        <input type="number" name="age" id="age" value = {{data.Age}}><br>
+        <label for="">Experience : </label>
+        <input type="text" name="experience" id="experience" value = {{data.Experience}}><br>
+        <label for="">Skills : </label>
+        <input type="text" name="skills" id="skills" value = {{data.Skills}}><br>
+        <label for="">Salary : </label>
+        <input type="text" name="salary" id="salary" value = {{data.Salary}}><br>
+        <label for="">Bal : </label>
+        <input type="text" name="bal" id="bal" value = {{data.Bal}}><br>
+        <input type="submit" value="submit">
+    </form>
+    {{else}}
+    <div class = "main_table">
+        <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>No</th> 
+        <th>Name</th>
+        <th>Age</th>
+        <th>Experience</th>
+        <th>Skills</th>
+        <th>Salary</th>
+        <th>Balance</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+        {{#each collection}}
+  <tbody>
+        <tr>
+         <td>{{@index}}</td>
+        <td>{{this.Name}}</td>
+        <td>{{this.Age}}</td>
+        <td>{{this.Experience}}</td>
+        <td>{{this.Skills}}</td>
+        <td>{{this.Salary}}</td>
+        <td>{{this.Bal}}</td>
+        <td><a href="/Update/?editId={{this._id}}" class = "btn btn-success">Update</a></td>
+        <td><a href="/Delete/?deleteId={{this._id}}" class = "btn btn-danger">Delete</a></td>
+        
+        </tr>
+    </tbody>
+        {{/each}}
+  </table>
+    </div>
+{{/if}}
+
+</body>
+</html>
